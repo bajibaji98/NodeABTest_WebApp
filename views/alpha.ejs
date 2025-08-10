@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Alpha workspace</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body class="alpha">
+  <div class="container">
+    <section class="card">
+      <div class="row" style="justify-content:space-between">
+        <h1>Alpha workspace</h1>
+        <span class="badge alpha">Variant: ALPHA</span>
+      </div>
+      <p>Hello, <b><%= user %></b>. Alpha emphasizes <i>decisive actions</i>.</p>
+      <div class="row">
+        <button class="btn" onclick="track('alpha-convert')">Log Alpha conversion</button>
+        <button class="btn ghost" onclick="track('alpha-compare')">Note Alpha comparison</button>
+      </div>
+      <p><a href="/dashboard">Update view (variant locked)</a></p>
+    </section>
+  </div>
+  <script>
+    async function track(id){
+      await fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({buttonId:id})});
+    }
+  </script>
+</body>
+</html>

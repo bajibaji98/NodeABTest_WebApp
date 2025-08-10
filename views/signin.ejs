@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Sign in</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <form class="form" method="post">
+    <h2>Welcome — let’s personalize</h2>
+    <label>Display name</label>
+    <input name="handle" required autocomplete="off"/>
+    <div class="row" style="margin-top:14px">
+      <button class="btn" type="submit">Enter my workspace</button>
+      <a class="btn ghost" href="/">Back to overview</a>
+    </div>
+    <% if (typeof error !== 'undefined') { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+  </form>
+</body>
+</html>

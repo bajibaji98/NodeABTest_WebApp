@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Beta studio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body class="beta">
+  <div class="container">
+    <section class="card">
+      <div class="row" style="justify-content:space-between">
+        <h1>Beta studio</h1>
+        <span class="badge beta">Variant: BETA</span>
+      </div>
+      <p>Welcome, <b><%= user %></b>. Beta focuses on <i>exploration and learning</i>.</p>
+      <div class="row">
+        <button class="btn alt" onclick="track('beta-start-tour')">Start Beta tour</button>
+        <button class="btn ghost" onclick="track('beta-record-interest')">Record interest</button>
+      </div>
+      <p><a href="/dashboard">Refresh content (variant is fixed)</a></p>
+    </section>
+  </div>
+  <script>
+    async function track(id){
+      await fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({buttonId:id})});
+    }
+  </script>
+</body>
+</html>
